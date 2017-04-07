@@ -1,0 +1,46 @@
+Create a python virtual environment:
+virtualenv venv
+source venv/bin/activate
+
+This terminal (only) is now in a virtual environment.
+Deactivate it with:
+deactivate
+
+Create requirements.txt using:
+pip freeze > requirements.txt
+
+To run unit tests, first install your package in your virtual environment using:
+pip install . -e
+Use -e . to install as a symlink.
+This allows source changes to be immediately available to 'others', that is,
+your unit tests.
+
+This installs the package locally.
+You can uninstall it using
+pip uninstall <package_name>
+
+If pytest.ini is configured to not recurse the virtual environment directory,
+you can run all tests with
+pytest
+Otherwise I think you have to use
+pytest -m <file>
+or whatever, which is lame.
+
+If you create a new module and aren't installed with a symlink, run
+pip install . --upgrade
+
+I'm not sure how to run setup.py:
+python setup.py install
+?
+Not sure what this does. Resesarch it.
+Looks like you can also use
+python setup.py develop
+
+I'm not sure what to do for requirements.txt after you install your own package.
+It may be possible to install our own package by version number.
+In some cases, pip freeze checks the remote for the current hash of this repo/package.
+This is circular; once you update the hash to the current commit,
+the hash changes. Research how to get around this.
+
+
+Manifest.in allows you distribute non-python files with your package. For example, we will distribute this README.
