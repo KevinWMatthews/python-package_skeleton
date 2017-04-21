@@ -4,4 +4,4 @@ class Skeleton():
         return False
 
     def rattle(self):
-        pass
+        return 'Rattle rattle!'

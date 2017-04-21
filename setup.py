@@ -7,4 +7,7 @@ setup(name='package_skeleton',
       author_email='KevinWMatthews@gmail.com',
       license='MIT',
       packages=['package_skeleton'],
-      zip_safe=False)
+      zip_safe=False,
+      scripts=['bin/skeleton-rattle'],
+      include_package_data=True
+)

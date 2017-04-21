@@ -12,7 +12,7 @@ def test_if_it_lives():
 
 def test_rattle_skeleton():
     skeleton = Skeleton()
-    skeleton.rattle()
+    assert 'Rattle rattle!' == skeleton.rattle()
 
 @pytest.mark.skip(reason="This test always fails")
 def test_fail():

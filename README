@@ -44,3 +44,16 @@ the hash changes. Research how to get around this.
 
 
 Manifest.in allows you distribute non-python files with your package. For example, we will distribute this README.
+
+
+Place your own scripts in bin/
+If you put scripts here and modify setup.py so it knows about them,
+you will be able to run your scripts from the command line in your virtual environment.
+
+You may need to set
+    include_package_data=True
+in setup.py but I don't quite understand why. I guess it's so that non-python files
+get copied into site-packages at install time.
+
+There is a fancier way to do this: creating a 'console_scripts' entry point in setup.py.
+I don't understand that yet.
