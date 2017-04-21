@@ -8,6 +8,8 @@ deactivate
 
 Create requirements.txt using:
 pip freeze > requirements.txt
+If you have installed your package in a virtual environment to make testing easier,
+be *sure* to delete your package from the requirements file.
 
 To run unit tests, first install your package in your virtual environment using:
 pip install . -e
