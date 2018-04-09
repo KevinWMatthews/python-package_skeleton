@@ -25,9 +25,14 @@ setup(
     author_email='KevinWMatthews@gmail.com',
     license='MIT',
 
-    #TODO
+    # Testing
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=[
+        'pytest',
+    ],
     # test_suit='',
-    # tests_require=[],
     # test_loader=,
 
     #TODO entry_points={},
