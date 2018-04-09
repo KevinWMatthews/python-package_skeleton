@@ -1,61 +1,21 @@
-Create a python virtual environment:
-virtualenv venv
-source venv/bin/activate
-
-This terminal (only) is now in a virtual environment.
-Deactivate it with:
-deactivate
-
 Create requirements.txt using:
-pip freeze > requirements.txt
+$ pip freeze > requirements.txt
 If you have installed your package in a virtual environment to make testing easier,
 be *sure* to delete your package from the requirements file.
 
-To run unit tests, first install your package in your virtual environment using:
+To install this package in your virtual environment:
 pip install . -e
-Use -e . to install as a symlink.
+Use -e to install as a symlink/in editable mode.
 This allows source changes to be immediately available to 'others', that is,
 your unit tests.
 
-This installs the package locally.
-You can uninstall it using
-pip uninstall <package_name>
-
-If pytest.ini is configured to not recurse the virtual environment directory,
-you can run all tests with
-pytest
-Otherwise I think you have to use
-pytest -m <file>
-or whatever, which is lame.
-
-If you create a new module and aren't installed with a symlink, run
+If you edit the package and it is not installed with a symlink, run
 pip install . --upgrade
 
-I'm not sure how to run setup.py:
-python setup.py install
-?
-Not sure what this does. Resesarch it.
-Looks like you can also use
-python setup.py develop
-
-I'm not sure what to do for requirements.txt after you install your own package.
-It may be possible to install our own package by version number.
-In some cases, pip freeze checks the remote for the current hash of this repo/package.
-This is circular; once you update the hash to the current commit,
-the hash changes. Research how to get around this.
-
-
-Manifest.in allows you distribute non-python files with your package. For example, we will distribute this README.
-
+To uninstall this package from your virtual environment:
+pip uninstall <package_name>
 
 Place your own scripts in bin/
 If you put scripts here and modify setup.py so it knows about them,
 you will be able to run your scripts from the command line in your virtual environment.
-
-You may need to set
-    include_package_data=True
-in setup.py but I don't quite understand why. I guess it's so that non-python files
-get copied into site-packages at install time.
-
-There is a fancier way to do this: creating a 'console_scripts' entry point in setup.py.
-I don't understand that yet.
+It is recommended to use 'entry_points' in setup.py for cross-platform support instead of 'scripts'.
