@@ -3,4 +3,4 @@
 from package_skeleton import Skeleton
 
 skeleton = Skeleton()
-print skeleton.rattle()
+print(skeleton.rattle())
