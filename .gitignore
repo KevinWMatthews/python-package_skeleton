@@ -1,14 +1,17 @@
-# Ignore python virtual environment
-/venv/
+# Ignore python virtual environments
+venv*/
 
-# Ignore pytest cache
-/.cache/
+# Ignore caches
+.cache/
+.pytest_cache/
 
 # Ignore python setuptools packaging
-/*.egg-info/
+*.egg-info/
+*.eggs/
 
 # Ignore compiled python files
 *.pyc
+__pycache__/
 
 # Ignore Sublime Text files
 *.sublime-workspace
