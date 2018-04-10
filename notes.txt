@@ -4,18 +4,36 @@ If you have installed your package in a virtual environment to make testing easi
 be *sure* to delete your package from the requirements file.
 
 To install this package in your virtual environment:
-pip install . -e
+$ pip install . -e
 Use -e to install as a symlink/in editable mode.
 This allows source changes to be immediately available to 'others', that is,
 your unit tests.
 
 If you edit the package and it is not installed with a symlink, run
-pip install . --upgrade
+$ pip install . --upgrade
 
 To uninstall this package from your virtual environment:
-pip uninstall <package_name>
+$ pip uninstall <package_name>
 
 Place your own scripts in bin/
 If you put scripts here and modify setup.py so it knows about them,
 you will be able to run your scripts from the command line in your virtual environment.
 It is recommended to use 'entry_points' in setup.py for cross-platform support instead of 'scripts'.
+
+Check your package meta-data using
+$ python setup.py check
+
+To create a tarball of the source distribution, run
+$ python setup.py sdist
+Users can download this tarball and run:
+$ python setup.py install
+
+To build the package under build/ run
+$ python setup.py build
+
+For various installer formats,
+$ python setup.py bdist --formats=<>
+$ python setup.py bdist --help-formats
+
+Some have special targets:
+$ python setup.py bdist_wininst
